@@ -1,6 +1,4 @@
-const API_URL = getHostURL();
-
-$(document).ready(function () {
+$(document).ready(function() {
   // get user id from url query
   const params = parseQuery(window.location.search);
   // make a request to the server for the user information
@@ -42,7 +40,7 @@ function addUserInfoToPage(user) {
 function addStickers(stickers) {
   let source = $("#sticker-template").html();
   let template = Handlebars.compile(source);
-  let context = {stickers};
+  let context = { stickers };
   // yay more variations!! abstraction rocks!
   // let context = {stickers: stickers};
   let html = template(context);
@@ -51,12 +49,4 @@ function addStickers(stickers) {
 
 function weSuck() {
   alert('user not found... and we suck')
-}
-
-function getHostURL() {
-  if (window.location.host.indexOf('localhost') != -1) {
-    return 'http://localhost:3000';
-  } else {
-    return 'https://sticker-mania.herokuapp.com';
-  }
 }
