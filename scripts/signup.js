@@ -3,9 +3,8 @@ $(() => {
     event.preventDefault();
     const user = getUserFromForm();
 
-    login(user)
+    signup(user)
       .then(result => {
-        console.log(result);
         window.location = `/user.html?id=${result.id}`;
       }).catch(error => {
         console.error(error);
@@ -14,6 +13,6 @@ $(() => {
   });
 });
 
-function login(user) {
-  return $.post(`${AUTH_URL}/login`, user);
+function signup(user) {
+  return $.post(`${AUTH_URL}/signup`, user);
 }
