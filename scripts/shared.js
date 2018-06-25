@@ -12,7 +12,7 @@ function getHostURL() {
   if (window.location.host.indexOf('localhost') != -1) {
     return 'http://localhost:3000';
   } else {
-    return 'https://sticker-mania.herokuapp.com';
+    //return 'https://sticker-mania.herokuapp.com';
   }
 }
 
@@ -32,4 +32,23 @@ function showErrorMessage(message) {
   const $errorMessage = $('#errorMessage');
   $errorMessage.text(message);
   $errorMessage.show();
+}
+
+function setIdRedirect(result) {
+  localStorage.user_id = result.id;
+  window.location = `/user.html?id=${result.id}`;
+}
+
+function redirectIfLoggedIn() {
+  if (localStorage.user_id) {
+    window.location = `/user.html?id=${localStorage.user_id}`;
+  }
+}
+
+function logout() {
+  localStorage.removeItem('user_id');
+  $.get(`${AUTH_URL}/logout`)
+    .then(result => {
+      window.location = '/login.html';
+    });
 }

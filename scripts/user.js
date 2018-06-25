@@ -6,7 +6,7 @@ $(document).ready(function() {
     .then(addUserInfoToPage)
     .then(getStickers)
     .then(addStickers)
-    .catch(weSuck);
+    .catch(handleError);
   // show user information
   // make a request to server for the stickers for the user with that id
   // show user stickers
@@ -47,6 +47,6 @@ function addStickers(stickers) {
   $('.stickers').html(html);
 }
 
-function weSuck() {
-  alert('user not found... and we suck')
+function handleError(error) {
+  window.location = '/login.html';
 }
