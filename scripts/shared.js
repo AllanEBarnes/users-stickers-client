@@ -10,9 +10,12 @@ const AUTH_URL = `${API_URL}/auth`
 
 function getHostURL() {
   if (window.location.host.indexOf('localhost') != -1) {
-    return 'http://localhost:3000';
+    //return 'http://localhost:3000';
+    return 'https://impact-kobo.appspot.com/';
   } else {
+    console.log('remote host');
     //return 'https://sticker-mania.herokuapp.com';
+    return 'https://impact-kobo.appspot.com/';
   }
 }
 
