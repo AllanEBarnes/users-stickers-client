@@ -10,12 +10,13 @@ const AUTH_URL = `${API_URL}/auth`
 
 function getHostURL() {
   if (window.location.host.indexOf('localhost') != -1) {
-    //return 'http://localhost:3000';
-    return 'https://impact-kobo.appspot.com';
+    console.log('---localhost');
+    return 'http://localhost:3000';
+    //return 'https://impact-kobo.appspot.com';
   } else {
-    console.log('remote host');
-    //return 'https://sticker-mania.herokuapp.com';
-    return 'https://impact-kobo.appspot.com';
+    console.log('---remote host');
+    return 'http://localhost:3000';
+    //return 'https://impact-kobo.appspot.com';
   }
 }
 
@@ -43,7 +44,7 @@ function setIdRedirect(result) {
 }
 
 function redirectIfLoggedIn() {
-  if (localStorage.user_id) {
+  if (localStorage.user_id && localStorage.user_id != 'undefined') {
     window.location = `/user.html?id=${localStorage.user_id}`;
   }
 }
@@ -52,6 +53,6 @@ function logout() {
   localStorage.removeItem('user_id');
   $.get(`${AUTH_URL}/logout`)
     .then(result => {
-      window.location = '/login.html';
+      window.location = '/index.html';
     });
 }

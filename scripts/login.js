@@ -7,11 +7,11 @@ $(() => {
 
     login(user)
       .then(result => {
-        console.log(result);
+        //console.log(result);
         setIdRedirect(result);
       }).catch(error => {
         console.error(error);
-        //showErrorMessage(error.responseJSON.message);
+        showErrorMessage(error.responseJSON.message);
       });
   });
 });

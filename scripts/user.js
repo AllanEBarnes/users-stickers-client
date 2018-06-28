@@ -48,5 +48,6 @@ function addStickers(stickers) {
 }
 
 function handleError(error) {
+  console.error(error);
   window.location = '/login.html';
 }
