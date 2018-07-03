@@ -44,7 +44,7 @@ function setIdRedirect(result) {
 }
 
 function redirectIfLoggedIn() {
-  if (localStorage.user_id && localStorage.user_id != 'undefined') {
+  if (localStorage.user_id) {
     window.location = `/user.html?id=${localStorage.user_id}`;
   }
 }
