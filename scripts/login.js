@@ -1,4 +1,4 @@
-redirectIfLoggedIn();
+//redirectIfLoggedIn();
 
 $(() => {
   $('form').submit((event) => {

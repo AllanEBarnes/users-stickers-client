@@ -11,8 +11,8 @@ const AUTH_URL = `${API_URL}/auth`
 function getHostURL() {
   if (window.location.host.indexOf('localhost') != -1) {
     console.log('---localhost');
-    //return 'http://localhost:3000';
-    return 'https://impact-kobo.appspot.com';
+    return 'http://localhost:3000';
+    //return 'https://impact-kobo.appspot.com';
   } else {
     console.log('---remote host');
     // return 'http://localhost:3000';
